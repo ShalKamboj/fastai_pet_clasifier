@@ -1,2 +1,5 @@
 /images/
 /images.7z
+
+/hard/
+*.pkl
