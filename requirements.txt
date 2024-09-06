@@ -1,0 +1,6 @@
+fastai
+gradio
+scikit-image
+nbdev
+timm
+gradio_client
