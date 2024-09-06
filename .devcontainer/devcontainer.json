@@ -1,0 +1,49 @@
+// For more details, see https://aka.ms/devcontainer.json.
+{
+    "name": "CNN-Hands-on-practice",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+
+    "features": {
+        "docker-in-docker": "latest",
+        "git": "latest"
+    },
+    "hostRequirements": {
+        "storage": "64gb"
+    },
+    "runArgs": [
+        "--gpus=all",
+        "--shm-size=4g",
+        "--network", "host",
+        "--dns", "8.8.8.8",
+        "--dns", "8.8.4.4"
+    ],
+    "customizations":{
+        "vscode": {
+            "extensions": [
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "github.copilot",
+                "github.copilot-chat",
+                "Optuna.optuna-dashboard"
+            ],
+            "settings": {
+                    "latex.workshop.enableLaTeXCommands": true,
+                    "latex.build.onSave": true,
+                    "latex.updatePapersOnBuild": true,
+                    "jupyter.markdownMathRenderingOptions": {
+                    "enabled": true,
+                    "macros": {
+                        "\\RR": "\\mathbb{R}"
+                    }
+                }
+            }
+        }
+    },
+    "postCreateCommand": "DONT_PROMPT_WSL_INSTALL=1 code --install-extension ms-toolsai.jupyter ms-toolsai.jupyter-keymap ms-toolsai.jupyter-renderers ms-python.python ms-python.vscode-pylance github.copilot github.copilot-chat --no-sandbox --user-data-dir=/tmp/vscode"
+}
